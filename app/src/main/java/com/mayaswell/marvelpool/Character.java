@@ -5,31 +5,25 @@ import android.graphics.Bitmap;
 import java.util.ArrayList;
 
 /**
- * Created by dak on 4/26/2016.
  */
-public class Character {
+public class Character extends NamedResource {
 	public int id;
-	public String name;
 	public String description;
-	public String thumbnailURL;
 	public ArrayList<Event> eventList;
 	public ArrayList<Comic> comicList;
 	public ArrayList<Story> storyList;
 	public ArrayList<Series> seriesList;
 	public ArrayList<InfoURL> urlList;
-	public Bitmap thumbnailBitmap;
 
-	public Character(int id, String name, String description, String thumbnailURL) {
+	public Character(int id, String name, String description, String thumbnailURI) {
+		super(null, name, thumbnailURI);
 		this.id = id;
-		this.name = name;
 		this.description = description;
-		this.thumbnailURL = thumbnailURL;
 		this.urlList = null;
 		this.comicList = null;
 		this.storyList = null;
 		this.seriesList = null;
 		this.eventList = null;
-		this.thumbnailBitmap = null;
 	}
 
 	public Character() {

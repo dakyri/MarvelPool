@@ -36,14 +36,14 @@ public class MarvelSlurper {
 	}
 
 	public void getCharacters() {
-		getCharacters(0, -1);
+		getCharacters(0, -1, null);
 	}
 
 	public void getCharacters(int offset) {
-		getCharacters(offset, -1);
+		getCharacters(offset, -1, null);
 	}
 
-	public void getCharacters(int offset, int limit) {
+	public void getCharacters(int offset, int limit, String query) {
 		JSONSlurper loader = new JSONSlurper() {
 			@Override
 			protected void onPostExecute(JSONObject result)
@@ -102,6 +102,9 @@ public class MarvelSlurper {
 		}
 		if (limit > 0) {
 			targetURL += "&limit="+limit;
+		}
+		if (query != null && !query.equals("")) {
+			targetURL += "&nameStartsWith="+query;
 		}
 		loader.execute(targetURL);
 

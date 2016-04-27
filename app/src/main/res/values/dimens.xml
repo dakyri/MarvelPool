@@ -11,4 +11,5 @@
     <dimen name="detailTitleMargin">15dp</dimen>
     <dimen name="detailMainTitlePadding">20dp</dimen>
     <dimen name="comicThumbImageHeight">150dp</dimen>
+    <dimen name="shortCharacterListImageHeight">140dp</dimen>
 </resources>

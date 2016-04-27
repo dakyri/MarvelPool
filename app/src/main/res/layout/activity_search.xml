@@ -9,8 +9,16 @@
     android:paddingRight="@dimen/activity_main_horizontal_margin"
     android:background="@drawable/background"
     tools:context="com.mayaswell.marvelpool.SearchActivity">
-    <TextView
-        android:layout_width="wrap_content"
+
+    <com.mayaswell.marvelpool.OSListView
+        android:id="@+id/characterListView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="stub here!"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="1dp"
+        />
 </RelativeLayout>

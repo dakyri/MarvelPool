@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	/**
-	 * @param selectedCharacter
+	 * @param c
 	 */
 	private void showDetailView(Character c) {
 		android.support.v7.app.ActionBar actionBar = getSupportActionBar();

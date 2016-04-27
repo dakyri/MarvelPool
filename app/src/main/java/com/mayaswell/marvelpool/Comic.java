@@ -6,7 +6,7 @@ package com.mayaswell.marvelpool;
 public class Comic extends NamedResource {
 
 	public Comic(String resourceURI, String name) {
-		super(name, resourceURI);
+		super(resourceURI, name);
 	}
 
 	public Comic() {
