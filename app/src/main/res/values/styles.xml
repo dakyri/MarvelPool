@@ -22,6 +22,7 @@
     <style name="DetailTitleText">
         <item name="android:gravity">left</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">@dimen/detailTitlePaddingHor</item>
         <item name="android:textColor">@color/detailTitle</item>
         <item name="android:textSize">@dimen/detailTitleTextSize</item>
     </style>
@@ -31,4 +32,15 @@
         <item name="android:textColor">@color/detailContent</item>
         <item name="android:textSize">@dimen/detailContentTextSize</item>
     </style>
+    <style name="RelatedItemLink">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/urlText</item>
+        <item name="android:textColorLink">@color/urlText</item>
+        <item name="android:paddingLeft">@dimen/linkTextPaddingHor</item>
+        <item name="android:paddingRight">@dimen/linkTextPaddingHor</item>
+        <item name="android:paddingTop">@dimen/linkTextPaddingVer</item>
+        <item name="android:paddingBottom">@dimen/linkTextPaddingVer</item>
+        <item name="android:textSize">@dimen/urlTextTextSize</item>
+    </style>
+
 </resources>

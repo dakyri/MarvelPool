@@ -132,7 +132,6 @@ public class MarvelSlurper {
 					}
 					r.thumbnailURI = getImageURL(resa.getJSONObject(0), "thumbnail");
 				} catch (JSONException e) {
-					e.printStackTrace();
 					notifyError("JSON error processing results for thumbnail resource data");
 					return;
 				}

@@ -40,7 +40,7 @@
         android:layout_alignParentStart="true"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
         style="@style/DetailContentText"
@@ -58,11 +58,12 @@
         android:layout_below="@+id/detailContent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
+    >
     <LinearLayout
         android:id="@+id/comicList"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/detailThumbListHeight"
         android:layout_below="@+id/comicTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -80,8 +81,8 @@
     <LinearLayout
         android:id="@+id/seriesList"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/detailThumbListHeight"
         android:layout_below="@+id/seriesTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -99,13 +100,14 @@
     <LinearLayout
         android:id="@+id/storyList"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/detailThumbListHeight"
         android:layout_below="@+id/storyTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
     </LinearLayout>
     <TextView
+
         android:id="@+id/eventTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,8 +120,8 @@
     <LinearLayout
         android:id="@+id/eventList"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/detailThumbListHeight"
         android:layout_below="@+id/eventTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -137,7 +139,7 @@
     <LinearLayout
         android:id="@+id/urlList"
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/urlTitle"
         android:layout_alignParentLeft="true"

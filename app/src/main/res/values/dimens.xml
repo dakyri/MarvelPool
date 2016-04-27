@@ -16,4 +16,9 @@
     <dimen name="comicThumbMaxWidth">100dp</dimen>
     <dimen name="comicThumbTextMargin">5dp</dimen>
     <dimen name="comicThumbItemMargin">10dp</dimen>
+    <dimen name="detailThumbListHeight">240dp</dimen>
+    <dimen name="urlTextTextSize">20sp</dimen>
+    <dimen name="linkTextPaddingHor">10dp</dimen>
+    <dimen name="linkTextPaddingVer">5dp</dimen>
+    <dimen name="detailTitlePaddingHor">15dp</dimen>
 </resources>

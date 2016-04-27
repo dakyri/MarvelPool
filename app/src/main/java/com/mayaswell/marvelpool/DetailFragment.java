@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by dak on 4/27/2016.
  */
@@ -28,6 +30,11 @@ public class DetailFragment extends Fragment {
 	private LinearLayout urlList;
 	private Character displayedCharacter = null;
 	private MarvelSlurper marvelAPI = null;
+	private TextView comicListTitle;
+	private TextView storyListTitle;
+	private TextView seriesListTitle;
+	private TextView eventListTitle;
+	private TextView urlListTitle;
 
 	public void setMarvelAPI(MarvelSlurper marvelAPI) {
 		this.marvelAPI = marvelAPI;
@@ -52,6 +59,12 @@ public class DetailFragment extends Fragment {
 		storyList = (LinearLayout) v.findViewById(R.id.storyList);
 		eventList = (LinearLayout) v.findViewById(R.id.eventList);
 		urlList = (LinearLayout) v.findViewById(R.id.urlList);
+
+		comicListTitle = (TextView) v.findViewById(R.id.comicTitle);
+		seriesListTitle = (TextView) v.findViewById(R.id.seriesTitle);
+		storyListTitle = (TextView) v.findViewById(R.id.storyTitle);
+		eventListTitle = (TextView) v.findViewById(R.id.eventTitle);
+		urlListTitle = (TextView) v.findViewById(R.id.urlTitle);
 
 		if (displayedCharacter != null) {
 			setCharacter(displayedCharacter);
@@ -92,37 +105,52 @@ public class DetailFragment extends Fragment {
 		if (descriptionText != null) {
 			descriptionText.setText(c.description);
 		}
+		checkVisible(c.comicList, comicList, comicListTitle);
 		if (comicList != null) {
 			comicList.removeAllViews();
 			for (Comic comic: c.comicList) {
 				comicList.addView(getComicThumbView(comic));
 			}
 		}
-		/*
+
+		checkVisible(c.seriesList, seriesList, seriesListTitle);
 		if (seriesList != null) {
 			seriesList.removeAllViews();
 			for (Series comic: c.seriesList) {
 				seriesList.addView(getComicThumbView(comic));
 			}
 		}
+		checkVisible(c.storyList, storyList, storyListTitle);
 		if (storyList != null) {
 			storyList.removeAllViews();
 			for (Story comic: c.storyList) {
 				storyList.addView(getComicThumbView(comic));
 			}
 		}
+		checkVisible(c.eventList, eventList, eventListTitle);
 		if (eventList != null) {
 			eventList.removeAllViews();
 			for (Event comic: c.eventList) {
 				eventList.addView(getComicThumbView(comic));
 			}
 		}
+		checkVisible(c.urlList, urlList, urlListTitle);
 		if (urlList != null) {
 			urlList.removeAllViews();
 			for (InfoURL info: c.urlList) {
 				urlList.addView(getURLView(info));
 			}
-		}*/
+		}
+	}
+
+	private void checkVisible(ArrayList<?> l, LinearLayout lll, TextView lt) {
+		if (l.size() == 0) {
+			if (lt != null) lt.setVisibility(View.GONE);
+			if (lll != null) lll.setVisibility(View.GONE);
+		} else {
+			if (lt != null) lt.setVisibility(View.VISIBLE);
+			if (lll != null) lll.setVisibility(View.VISIBLE);
+		}
 	}
 
 	private View getURLView(InfoURL info) {
@@ -130,7 +158,7 @@ public class DetailFragment extends Fragment {
 		View urlView = inflater.inflate(R.layout.url_info_item_view, null, false);
 		TextView tv = (TextView) urlView.findViewById(R.id.urlTextView);
 		tv.setMovementMethod(LinkMovementMethod.getInstance());
-		tv.setText(Html.fromHtml("<a href=\"" + info.url + "\">" + info.type + "</a>"));
+		tv.setText(Html.fromHtml("<a href=\"" + info.url + "\">" + info.type.toUpperCase() + "</a>"));
 		return urlView;
 	}
 

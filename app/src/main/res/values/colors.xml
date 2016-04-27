@@ -6,4 +6,6 @@
     <color name="detailTitle">#F0151E</color>
     <color name="detailMainTitle">#FCFCFB</color>
     <color name="detailContent">#FCFCFB</color>
+    <color name="urlText">#FCFCFB</color>
+
 </resources>
