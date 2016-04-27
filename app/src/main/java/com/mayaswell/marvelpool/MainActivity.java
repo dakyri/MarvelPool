@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
 				if (characterListView.getCount() > 0 && characterListView.getChildAt(0).getTop() < 0) {
 					synchronized (marvelAPI) {
 						if (currentlyRetrievingOffset < nextOffset) {
-							marvelAPI.getCharacters(nextOffset);
 							currentlyRetrievingOffset = nextOffset;
+							marvelAPI.getCharacters(nextOffset);
 						}
 					}
 				}

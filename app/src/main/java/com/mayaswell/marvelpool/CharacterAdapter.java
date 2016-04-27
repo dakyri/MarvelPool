@@ -57,8 +57,7 @@ public class CharacterAdapter extends ArrayAdapter<Character> {
 		final Character p = getItem(position);
 		final TextView nameView = (TextView) convertView.findViewById(R.id.itemNameView);
 		final ImageView imageView = (ImageView) convertView.findViewById(R.id.itemImageView);
-		final Uri thumbnailURI = Uri.parse(p.thumbnailURI);
-		Log.d("CharacterAdapter", "got " + p.name + " .. " + p.thumbnailURI + " " + thumbnailURI.toString());
+		Log.d("CharacterAdapter", "got " + p.name + " .. " + p.thumbnailURI);
 
 //		imageView.setImageURI(thumbnailURI);
 // that doesn't work!!!! worker thread is better anyway for responsiveness
