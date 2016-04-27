@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_main_horizontal_margin">0dp</dimen>
+    <dimen name="activity_main_vertical_margin">0dp</dimen>
+    <dimen name="characterListImageHeight">200dp</dimen>
+    <dimen name="characterListTextMargin">40dp</dimen>
+    <dimen name="characterListTextSize">18sp</dimen>
+    <dimen name="detailMainTitleTextSize">18sp</dimen>
+    <dimen name="detailTitleTextSize">15sp</dimen>
+    <dimen name="detailContentTextSize">15sp</dimen>
+    <dimen name="detailTitleMargin">15dp</dimen>
+    <dimen name="detailMainTitlePadding">20dp</dimen>
+    <dimen name="comicThumbImageHeight">150dp</dimen>
+</resources>

@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="ItemNameText">
+        <item name="android:gravity">left</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">@dimen/characterListTextSize</item>
+    </style>
+    <style name="DetailMainTitleText">
+        <item name="android:gravity">left</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/detailMainTitle</item>
+        <item name="android:textSize">@dimen/detailMainTitleTextSize</item>
+    </style>
+    <style name="DetailTitleText">
+        <item name="android:gravity">left</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/detailTitle</item>
+        <item name="android:textSize">@dimen/detailTitleTextSize</item>
+    </style>
+    <style name="DetailContentText">
+        <item name="android:gravity">left</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/detailContent</item>
+        <item name="android:textSize">@dimen/detailContentTextSize</item>
+    </style>
+</resources>

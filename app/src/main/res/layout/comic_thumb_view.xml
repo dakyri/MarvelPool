@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/comicThumbImageHeight"
+        android:id="@+id/itemImageView"
+        android:scaleType="fitStart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"/>
+    <TextView
+        android:id="@+id/itemNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/characterListTextMargin"
+        style="@style/DetailContentText"
+        android:text="Wade Wilson"
+        />
+
+</RelativeLayout>
