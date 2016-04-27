@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -31,8 +33,6 @@ public class SearchActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
-
-		handleIntent(getIntent());
 
 		nextOffset = 0;
 		currentlyRetrievingOffset = 0;
@@ -93,6 +93,16 @@ public class SearchActivity extends AppCompatActivity {
 				}
 			}
 		});
+
+		handleIntent(getIntent());
+
+	}
+
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
+		doCurrentSearch();
 	}
 
 	private void displayCharacterList(int offset, ArrayList<Character> cl) {
@@ -113,10 +123,25 @@ public class SearchActivity extends AppCompatActivity {
 		return false;
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+
+		// Associate searchable configuration with the SearchView
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+		searchView.setSearchableInfo( searchManager.getSearchableInfo(getComponentName()));
+
+		Log.d("Search", "got menu ");
+		return true;
+	}
+
 
 	@Override
 	protected void onNewIntent(Intent intent) {
 		handleIntent(intent);
+		doCurrentSearch();
 	}
 
 	private void handleIntent(Intent intent) {
@@ -126,12 +151,18 @@ public class SearchActivity extends AppCompatActivity {
 			Log.d("Search", "Got to search for " + query);
 			currentQuery = query;
 			refreshSearch();
-			marvelAPI.getCharacters(currentlyRetrievingOffset, -1, query);
-			synchronized (marvelAPI) {
-				if (currentlyRetrievingOffset < nextOffset) {
-					currentlyRetrievingOffset = nextOffset;
-					marvelAPI.getCharacters(nextOffset, -1, query);
-				}
+		}
+	}
+
+	private void doCurrentSearch() {
+		if (currentQuery == null) {
+			Log.d("Search", "current query is null");
+		}
+		marvelAPI.getCharacters(currentlyRetrievingOffset, -1, currentQuery);
+		synchronized (marvelAPI) {
+			if (currentlyRetrievingOffset < nextOffset) {
+				currentlyRetrievingOffset = nextOffset;
+				marvelAPI.getCharacters(nextOffset, -1, currentQuery);
 			}
 		}
 	}
