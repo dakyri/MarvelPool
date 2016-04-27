@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/comicThumbItemMargin"
+    >
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/comicThumbMaxWidth"
         android:layout_height="@dimen/comicThumbImageHeight"
+        android:maxWidth="@dimen/comicThumbMaxWidth"
         android:id="@+id/itemImageView"
         android:scaleType="fitStart"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentTop="true"/>
     <TextView
         android:id="@+id/itemNameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="@dimen/comicThumbMaxWidth"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/characterListTextMargin"
+        android:layout_below="@+id/itemImageView"
+        android:layout_marginTop="@dimen/comicThumbTextMargin"
         style="@style/DetailContentText"
         android:text="Wade Wilson"
         />

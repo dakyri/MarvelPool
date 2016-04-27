@@ -86,6 +86,9 @@ public class DetailFragment extends Fragment {
 		if (titleText != null) {
 			titleText.setText(c.name);
 		}
+		if (imageView != null) {
+			c.setThumbnailBitmap(imageView);
+		}
 		if (descriptionText != null) {
 			descriptionText.setText(c.description);
 		}
@@ -95,6 +98,7 @@ public class DetailFragment extends Fragment {
 				comicList.addView(getComicThumbView(comic));
 			}
 		}
+		/*
 		if (seriesList != null) {
 			seriesList.removeAllViews();
 			for (Series comic: c.seriesList) {
@@ -118,7 +122,7 @@ public class DetailFragment extends Fragment {
 			for (InfoURL info: c.urlList) {
 				urlList.addView(getURLView(info));
 			}
-		}
+		}*/
 	}
 
 	private View getURLView(InfoURL info) {

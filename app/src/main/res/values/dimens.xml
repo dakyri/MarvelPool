@@ -3,7 +3,7 @@
     <dimen name="activity_main_horizontal_margin">0dp</dimen>
     <dimen name="activity_main_vertical_margin">0dp</dimen>
     <dimen name="characterListImageHeight">200dp</dimen>
-    <dimen name="characterListTextMargin">40dp</dimen>
+    <dimen name="characterListTextMargin">50dp</dimen>
     <dimen name="characterListTextSize">18sp</dimen>
     <dimen name="detailMainTitleTextSize">18sp</dimen>
     <dimen name="detailTitleTextSize">15sp</dimen>
@@ -12,4 +12,8 @@
     <dimen name="detailMainTitlePadding">20dp</dimen>
     <dimen name="comicThumbImageHeight">150dp</dimen>
     <dimen name="shortCharacterListImageHeight">140dp</dimen>
+    <dimen name="detailImageHeight">300dp</dimen>
+    <dimen name="comicThumbMaxWidth">100dp</dimen>
+    <dimen name="comicThumbTextMargin">5dp</dimen>
+    <dimen name="comicThumbItemMargin">10dp</dimen>
 </resources>
