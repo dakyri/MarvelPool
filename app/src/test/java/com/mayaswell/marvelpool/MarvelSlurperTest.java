@@ -75,7 +75,65 @@ public class MarvelSlurperTest extends TestCase {
 		ArrayList<Comic> comicpool = marvelSlurper.getComicInfo(arraypool);
 		assertEquals(20, comicpool.size());
 		assertEquals("5 Ronin (Hardcover)", comicpool.get(0).name);
+		assertEquals("http://gateway.marvel.com/v1/public/comics/41112", comicpool.get(0).resourceURI);
 		assertEquals("Cable & Deadpool (2004) #5", comicpool.get(19).name);
+		assertEquals("http://gateway.marvel.com/v1/public/comics/548", comicpool.get(19).resourceURI);
+	}
+
+	@Test
+	public void testGetSeriesInfo() throws Exception {
+		String datapool = "{\"series\":{\"available\":99,\"collectionURI\":\"http://gateway.marvel.com/v1/public/characters/1009268/series\",\"items\":[{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/15276\",\"name\":\"5 Ronin (2011)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/12429\",\"name\":\"5 Ronin (2010)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/459\",\"name\":\"Agent X (2002 - 2004)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/454\",\"name\":\"Amazing Spider-Man (1999 - 2013)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1945\",\"name\":\"Avengers: The Initiative (2007 - 2010)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/15370\",\"name\":\"Battle Scars (2011 - 2012)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/4002\",\"name\":\"Cable (2008 - 2010)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/693\",\"name\":\"Cable & Deadpool (2004 - 2008)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/13886\",\"name\":\"Cable & Deadpool MGC (2011)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1209\",\"name\":\"Cable & Deadpool Vol. 1: If Looks Could Kill (2007)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1338\",\"name\":\"Cable & Deadpool Vol. 2: The Burnt Offering (2007)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1488\",\"name\":\"Cable & Deadpool Vol. 3: The Human Race (2005)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1578\",\"name\":\"Cable & Deadpool Vol. 4: Bosom Buddies (2006)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1676\",\"name\":\"Cable & Deadpool Vol. 5: Living Legends (2006)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1960\",\"name\":\"Cable & Deadpool Vol. 6: Paved with Good Intentions (2007)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/2710\",\"name\":\"Cable & Deadpool Vol. 7: Separation Anxiety (2007)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1487\",\"name\":\"Cable/Deadpool Vol. 3: The Human Race (2005)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1577\",\"name\":\"Cable/Deadpool Vol. 4: Bosom Buddies (2006)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/10105\",\"name\":\"Civil War: X-Men (2011)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/series/1962\",\"name\":\"Civil War: X-Men Universe (2007)\"}],\"returned\":20}}";
+		JSONObject jsonpool = new JSONObject(datapool);
+		JSONObject objectpool = jsonpool.getJSONObject("series");
+		JSONArray arraypool = objectpool.getJSONArray("items");
+		ArrayList<Series> comicpool = marvelSlurper.getSeriesInfo(arraypool);
+		assertEquals(20, comicpool.size());
+		assertEquals("5 Ronin (2011)", comicpool.get(0).name);
+		assertEquals("http://gateway.marvel.com/v1/public/series/15276", comicpool.get(0).resourceURI);
+		assertEquals("Civil War: X-Men Universe (2007)", comicpool.get(19).name);
+		assertEquals("http://gateway.marvel.com/v1/public/series/1962", comicpool.get(19).resourceURI);
+	}
+
+	@Test
+	public void testGetStoryInfo() throws Exception {
+		String datapool = "{\"stories\":{\"available\":570,\"collectionURI\":\"http://gateway.marvel.com/v1/public/characters/1009268/stories\",\"items\":[{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/1135\",\"name\":\"Cover #1135\",\"type\":\"cover\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/1619\",\"name\":\"Interior #1619\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2464\",\"name\":\"3 of 6 - The Passion of the Cable\",\"type\":\"cover\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2465\",\"name\":\"3 of 6 - The Passion of the Cable\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2467\",\"name\":\"Interior #2467\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2469\",\"name\":\"Interior #2469\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2471\",\"name\":\"Interior #2471\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2473\",\"name\":\"Interior #2473\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2475\",\"name\":\"Interior #2475\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2477\",\"name\":\"Interior #2477\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2479\",\"name\":\"Interior #2479\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2481\",\"name\":\"4 of 6 - The Passion of the Cable\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2483\",\"name\":\"5 of 6 - The Passion of the Cable\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2484\",\"name\":\"2 of 2 - Thirty Pieces\",\"type\":\"cover\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2485\",\"name\":\"2 of 2 - Thirty Pieces\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2487\",\"name\":\"1 of 2 - A Murder in Paradise\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2488\",\"name\":\"2 of 2 - A Murder in Paradise\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2489\",\"name\":\"1 of 4 - Enema of the State\",\"type\":\"cover\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2490\",\"name\":\"1 of 4 - Enema of the State\",\"type\":\"interiorStory\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/stories/2492\",\"name\":\"2 of 4 - Enema of the State\",\"type\":\"interiorStory\"}],\"returned\":20}}";JSONObject jsonpool = new JSONObject(datapool);
+		JSONObject objectpool = jsonpool.getJSONObject("stories");
+		JSONArray arraypool = objectpool.getJSONArray("items");
+		ArrayList<Story> comicpool = marvelSlurper.getStoryInfo(arraypool);
+		assertEquals(20, comicpool.size());
+		assertEquals("Cover #1135", comicpool.get(0).name);
+		assertEquals("http://gateway.marvel.com/v1/public/stories/1135", comicpool.get(0).resourceURI);
+		assertEquals("cover", comicpool.get(0).type);
+		assertEquals("2 of 4 - Enema of the State", comicpool.get(19).name);
+		assertEquals("http://gateway.marvel.com/v1/public/stories/2492", comicpool.get(19).resourceURI);
+		assertEquals("interiorStory", comicpool.get(19).type);
+	}
+
+	@Test
+	public void testGetEventInfo() throws Exception {
+		String datapool = "{\"events\":{\"available\":9,\"collectionURI\":\"http://gateway.marvel.com/v1/public/characters/1009268/events\",\"items\":[{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/227\",\"name\":\"Age of Apocalypse\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/238\",\"name\":\"Civil War\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/318\",\"name\":\"Dark Reign\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/251\",\"name\":\"House of M\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/298\",\"name\":\"Messiah War\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/269\",\"name\":\"Secret Invasion\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/309\",\"name\":\"Shattered Heroes\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/308\",\"name\":\"X-Men: Regenesis\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/events/306\",\"name\":\"X-Men: Schism\"}],\"returned\":9}}";
+		JSONObject jsonpool = new JSONObject(datapool);
+		JSONObject objectpool = jsonpool.getJSONObject("events");
+		JSONArray arraypool = objectpool.getJSONArray("items");
+		ArrayList<Event> comicpool = marvelSlurper.getEventInfo(arraypool);
+		assertEquals(9, comicpool.size());
+		assertEquals("Age of Apocalypse", comicpool.get(0).name);
+		assertEquals("http://gateway.marvel.com/v1/public/events/227", comicpool.get(0).resourceURI);
+		assertEquals("X-Men: Schism", comicpool.get(8).name);
+		assertEquals("http://gateway.marvel.com/v1/public/events/306", comicpool.get(8).resourceURI);
+	}
+
+	@Test
+	public void testGetURLInfo() throws Exception {
+		String datapool = "{\"urls\":[{\"type\":\"detail\",\"url\":\"http://marvel.com/characters/12/deadpool?utm_campaign=apiRef&utm_source=d69ae1426b19ec1650e79780e2fac09c\"},{\"type\":\"wiki\",\"url\":\"http://marvel.com/universe/Deadpool_(Wade_Wilson)?utm_campaign=apiRef&utm_source=d69ae1426b19ec1650e79780e2fac09c\"},{\"type\":\"comiclink\",\"url\":\"http://marvel.com/comics/characters/1009268/deadpool?utm_campaign=apiRef&utm_source=d69ae1426b19ec1650e79780e2fac09c\"}]}";
+		JSONObject jsonpool = new JSONObject(datapool);
+		JSONArray arraypool = jsonpool.getJSONArray("urls");
+		ArrayList<InfoURL> comicpool = marvelSlurper.getURLData(arraypool);
+		assertEquals(3, comicpool.size());
+		assertEquals("detail", comicpool.get(0).type);
+		assertEquals("http://marvel.com/characters/12/deadpool?utm_campaign=apiRef&utm_source=d69ae1426b19ec1650e79780e2fac09c", comicpool.get(0).url);
+		assertEquals("comiclink", comicpool.get(2).type);
+		assertEquals("http://marvel.com/comics/characters/1009268/deadpool?utm_campaign=apiRef&utm_source=d69ae1426b19ec1650e79780e2fac09c", comicpool.get(2).url);
 	}
 
 	@Test

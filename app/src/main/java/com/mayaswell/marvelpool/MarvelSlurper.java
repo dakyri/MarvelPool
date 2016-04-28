@@ -208,7 +208,7 @@ public class MarvelSlurper {
 		return thPath + "." + thExt;
 	}
 
-	private ArrayList<InfoURL> getURLData(JSONArray res) {
+	protected ArrayList<InfoURL> getURLData(JSONArray res) {
 		ArrayList<InfoURL> ua = new ArrayList<InfoURL>();
 		if (res != null) {
 			for (int i=0; i<res.length(); i++) {
@@ -268,7 +268,7 @@ public class MarvelSlurper {
 		return ua;
 	}
 
-	private ArrayList<Story> getStoryInfo(JSONArray res) {
+	protected ArrayList<Story> getStoryInfo(JSONArray res) {
 		ArrayList<Story> ua = new ArrayList<Story>();
 		if (res != null) {
 			for (int i=0; i<res.length(); i++) {
@@ -304,7 +304,7 @@ public class MarvelSlurper {
 		return ua;
 	}
 
-	private ArrayList<Event> getEventInfo(JSONArray res) {
+	protected ArrayList<Event> getEventInfo(JSONArray res) {
 		ArrayList<Event> ua = new ArrayList<Event>();
 		if (res != null) {
 			for (int i=0; i<res.length(); i++) {
@@ -335,7 +335,7 @@ public class MarvelSlurper {
 	}
 
 
-	private ArrayList<Series> getSeriesInfo(JSONArray res) {
+	protected ArrayList<Series> getSeriesInfo(JSONArray res) {
 		ArrayList<Series> ua = new ArrayList<Series>();
 		if (res != null) {
 			for (int i=0; i<res.length(); i++) {
