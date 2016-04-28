@@ -167,7 +167,7 @@ public class MarvelSlurper {
 			final String description = res.getString("description");
 			final int id = res.getInt("id");
 			final String thumbnailURL = getImageURL(res, "thumbnail");
-			Log.d("Slurper", "got "+name + " thumb "+thumbnailURL);
+//			Log.d("Slurper", "got "+name + " thumb "+thumbnailURL);
 			Character c = new Character(id, name, description, thumbnailURL);
 			try {
 				final JSONArray urlobj = res.getJSONArray("urls");
