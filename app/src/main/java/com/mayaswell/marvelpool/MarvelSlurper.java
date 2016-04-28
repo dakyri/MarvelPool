@@ -97,6 +97,7 @@ public class MarvelSlurper {
 		};
 		String baseURL = urlBase+"characters";
 		String targetURL = makeAuthorizedURL(baseURL);
+		Log.d("Slurper", "Made URL "+targetURL);
 		if (offset > 0) {
 			targetURL += "&offset="+offset;
 		}
@@ -156,7 +157,7 @@ public class MarvelSlurper {
 		loader.execute(targetURL);
 	}
 
-	private Character getCharacterData(final JSONObject res) {
+	protected Character getCharacterData(final JSONObject res) {
 		if (res == null) {
 			notifyError("unexpected null character");
 			return null;
@@ -200,7 +201,7 @@ public class MarvelSlurper {
 	}
 
 	@NonNull
-	private String getImageURL(JSONObject res, String imageName) throws JSONException {
+	protected String getImageURL(JSONObject res, String imageName) throws JSONException {
 		final JSONObject resth = res.getJSONObject(imageName);
 		final String thPath = resth.getString("path");
 		final String thExt = resth.getString("extension");
@@ -382,6 +383,9 @@ public class MarvelSlurper {
 	}
 
 	public static final String md5(final String s) {
+		if (s == null) {
+			return "";
+		}
 		final String MD5 = "MD5";
 		try {
 			MessageDigest digest = MessageDigest.getInstance(MD5);
