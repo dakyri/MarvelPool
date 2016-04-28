@@ -238,7 +238,7 @@ public class MarvelSlurper {
 		return ua;
 	}
 
-	private ArrayList<Comic> getComicInfo(JSONArray res) {
+	protected ArrayList<Comic> getComicInfo(JSONArray res) {
 		ArrayList<Comic> ua = new ArrayList<Comic>();
 		if (res != null) {
 			for (int i=0; i<res.length(); i++) {

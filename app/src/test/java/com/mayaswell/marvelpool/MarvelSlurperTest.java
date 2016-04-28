@@ -2,9 +2,12 @@ package com.mayaswell.marvelpool;
 
 import junit.framework.TestCase;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 /**
  * Created by dak on 4/28/2016.
@@ -61,6 +64,18 @@ public class MarvelSlurperTest extends TestCase {
 		String url = marvelSlurper.getImageURL(jsonpool, "thumbnail");
 		assertNotNull(url);
 		assertEquals(url, "http://i.annihil.us/u/prod/marvel/i/mg/9/90/5261a86cacb99.jpg");
+	}
+
+	@Test
+	public void testGetComicInfo() throws Exception {
+		String datapool = "{\"comics\":{\"available\":402,\"collectionURI\":\"http://gateway.marvel.com/v1/public/characters/1009268/comics\",\"items\":[{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/41112\",\"name\":\"5 Ronin (Hardcover)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/36160\",\"name\":\"5 Ronin (2010) #5\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/38751\",\"name\":\"5 Ronin (2010) #5 (MCGUINNESS COVER)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/394\",\"name\":\"Agent X (2002) #15\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/24418\",\"name\":\"Amazing Spider-Man (1999) #611\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/31556\",\"name\":\"Amazing Spider-Man (1999) #620 (DEADPOOL VARIANT)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/31560\",\"name\":\"Avengers: The Initiative (2007) #33 (DEADPOOL VARIANT)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/41349\",\"name\":\"Battle Scars (2011) #3\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/41348\",\"name\":\"Battle Scars (2011) #4\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/23971\",\"name\":\"Cable (2008) #13\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/23972\",\"name\":\"Cable (2008) #13 (OLIVETTI (MW, 50/50 COVER))\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/24171\",\"name\":\"Cable (2008) #14\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/24172\",\"name\":\"Cable (2008) #14 (OLIVETTI MW, 50/50 COVER)\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/24631\",\"name\":\"Cable (2008) #15\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/24632\",\"name\":\"Cable (2008) #15 (OLIVETTI (MW, 50/50 COVER))\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/430\",\"name\":\"Cable & Deadpool (2004) #1\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/479\",\"name\":\"Cable & Deadpool (2004) #2\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/644\",\"name\":\"Cable & Deadpool (2004) #3\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/706\",\"name\":\"Cable & Deadpool (2004) #4\"},{\"resourceURI\":\"http://gateway.marvel.com/v1/public/comics/548\",\"name\":\"Cable & Deadpool (2004) #5\"}],\"returned\":20}}";
+		JSONObject jsonpool = new JSONObject(datapool);
+		JSONObject objectpool = jsonpool.getJSONObject("comics");
+		JSONArray arraypool = objectpool.getJSONArray("items");
+		ArrayList<Comic> comicpool = marvelSlurper.getComicInfo(arraypool);
+		assertEquals(20, comicpool.size());
+		assertEquals("5 Ronin (Hardcover)", comicpool.get(0).name);
+		assertEquals("Cable & Deadpool (2004) #5", comicpool.get(19).name);
 	}
 
 	@Test
