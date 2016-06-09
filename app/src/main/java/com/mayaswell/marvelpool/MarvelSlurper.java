@@ -375,7 +375,7 @@ public class MarvelSlurper {
 		}
 	}
 
-	private String makeAuthorizedURL(final String url) {
+	protected String makeAuthorizedURL(final String url) {
 		final Long tsLong = System.currentTimeMillis()/1000;
 		final String ts = tsLong.toString();
 		final String hash = md5(ts + privateKey + apiKey);
